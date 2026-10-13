@@ -1,0 +1,19 @@
+# Vivado and simulator generated files
+.Xil/
+xsim.dir/
+*.jou
+*.log
+*.pb
+*.wdb
+*.str
+*.backup.*
+*.hw
+*.cache/
+*.runs/
+*.sim/
+*.ip_user_files/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
