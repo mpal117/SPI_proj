@@ -2,7 +2,7 @@ TOP      = top
 TB       = top_test
 SNAPSHOT = ${TB}_snapshot
 
-VFILES   = top.sv top_tb.sv controller_alu.sv
+VFILES   = top.sv top_tb.sv controller_alu.sv spi_slave.sv
 
 .PHONY: all parse elab run gui clean
 

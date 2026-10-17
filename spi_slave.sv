@@ -18,7 +18,6 @@ module spi_slave(
 
   always_ff @(posedge clk) begin
     if (~reset_n) begin
-      miso <= 1'd0;
       counter <= 3'd0;
       sclock_sync <= 0;
       mosi_sync <= 0;

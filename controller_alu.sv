@@ -23,7 +23,7 @@ module FSM(
   end
 
   always_comb begin 
-    case (currStatE) 
+    case (currState) 
       recv_OP: nextState = recv_valid     ? recv_A : recv_OP; 
       recv_A:  nextState = recv_valid     ? recv_B : recv_A;
       recv_B:  nextState = operation_done ? send   : recv_B;
