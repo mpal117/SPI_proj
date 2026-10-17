@@ -1,4 +1,4 @@
-module fsm_alu_cnx( 
+/*module fsm_alu_cnx( 
   input  logic       clk, reset_n,
   output logic       operation_done,
 
@@ -15,7 +15,7 @@ module fsm_alu_cnx(
   FSM fsm(.*); 
   ALU alu(.input_valid(ALU_valid), .output_valid(operation_done), .*);
 
-endmodule: fsm_alu_cnx
+endmodule: fsm_alu_cnx*/
 
 module top(
   input  logic       clk, reset_n, 

@@ -1,3 +1,22 @@
+module fsm_alu_cnx( 
+  input  logic       clk, reset_n,
+  output logic       operation_done,
+
+  input  logic       recv_valid,
+  input  logic [7:0] recv_data,
+
+  output logic [7:0] C,
+  output logic [7:0] A, B, operand,
+
+  output logic       ALU_valid,
+  output logic [7:0] send_data,
+  output logic       send_valid);
+
+  FSM fsm(.*); 
+  ALU alu(.input_valid(ALU_valid), .output_valid(operation_done), .*);
+
+endmodule: fsm_alu_cnx
+
 module FSM(
   input  logic       clk, reset_n, 
   input  logic       recv_valid,
@@ -22,6 +41,7 @@ module FSM(
     else          currState <= nextState; 
   end
 
+  //next state
   always_comb begin 
     case (currState) 
       recv_OP: nextState = recv_valid     ? recv_A : recv_OP; 
@@ -31,6 +51,7 @@ module FSM(
     endcase
   end
 
+  //sync
   always_ff @(posedge clk) begin
     if (~reset_n) begin 
       operand <= 8'd0; 
@@ -49,6 +70,7 @@ module FSM(
     end
   end
 
+  //output 
   always_comb begin 
     next_operand = operand;
     next_A = A; 
